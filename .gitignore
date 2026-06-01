@@ -1,0 +1,11 @@
+# Dependencias / build
+node_modules/
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporales y capturas de verificación
+tools/_shot*
+*.log

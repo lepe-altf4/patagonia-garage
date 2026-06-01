@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Créditos fotográficos · Patagonia Garage</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="styles.css?v=20260601" />
+  <style>
+    body.page-credits { background: var(--bg-deep); }
+    .credits-wrap { max-width: 820px; margin: 0 auto; padding: 7rem var(--pad) 5rem; position: relative; z-index: 1; }
+    .credits-back { font-family: var(--mono); font-size: .8rem; letter-spacing: .12em; color: var(--brass-2); }
+    .credits-back:hover { color: var(--ember); }
+    .credits-wrap h1 { font-family: var(--display); font-size: clamp(2.4rem,7vw,4rem); margin: 1.6rem 0 .8rem; }
+    .credits-intro { color: var(--text-mute); margin-bottom: 2.4rem; }
+    .credits-intro a { color: var(--brass-2); border-bottom: 1px solid var(--line); }
+    .credits-list { display: grid; gap: 1rem; }
+    .credits-list li { padding-bottom: 1rem; border-bottom: 1px solid var(--line); color: var(--text-mute); font-size: .92rem; line-height: 1.6; }
+    .credits-list strong { color: var(--text); font-weight: 600; }
+    .credits-list a { color: var(--brass); }
+    .credits-list a:hover { color: var(--ember); }
+  </style>
+</head>
+<body class="page-credits">
+  <div class="stage" aria-hidden="true"><div class="stage-fallback"></div><div class="vignette"></div></div>
+  <main class="credits-wrap">
+    <a class="credits-back" href="index.html">← Volver a Patagonia Garage</a>
+    <h1>Créditos fotográficos</h1>
+    <p class="credits-intro">
+      Las imágenes de este sitio se obtuvieron bajo licencias Creative Commons (uso comercial permitido)
+      a través de <a href="https://openverse.org" target="_blank" rel="noopener">Openverse</a>.
+      Gracias a sus autores.
+    </p>
+    <ul class="credits-list" data-credits>
+      <li>Cargando créditos…</li>
+    </ul>
+  </main>
+  <script defer src="lib/credits-render.js?v=20260601"></script>
+</body>
+</html>

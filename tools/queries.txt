@@ -1,0 +1,10 @@
+brisket|smoked brisket barbecue meat||large
+ribs|barbecue pork ribs smoked||large
+vacio|grilled flank steak sliced||large
+asado|argentine asado grill fire||large
+brasas|burning charcoal embers glow||large
+parrilla|grilled beef ribs barbecue||large
+garage|classic car garage workshop||large
+patagonia|patagonia mountains landscape|wide|large
+interior|dark moody restaurant interior||large
+smoke|grill smoke fire closeup||large

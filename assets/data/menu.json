@@ -1,0 +1,170 @@
+{
+  "note": "Los precios pueden variar. Consultá disponibilidad y opciones del día con tu mozo.",
+  "categories": [
+    {
+      "id": "entradas",
+      "name": "Entradas",
+      "items": [
+        { "name": "Provoleta ahumada", "desc": "Escabeche de pimientos y provenzal", "price": "$28.500" },
+        { "name": "Empanadas ahumadas", "desc": "Carne, cordero, pollo BBQ o trucha", "price": "$6.000 c/u" },
+        { "name": "Alitas ahumadas y fritas", "desc": "Con salsas", "price": "$20.000" },
+        { "name": "Rabas a la romana", "desc": "Con mayonesa de ajos", "price": "$28.500" }
+      ]
+    },
+    {
+      "id": "ahumador",
+      "name": "Al Ahumador",
+      "items": [
+        { "name": "Brisket", "desc": "12 hs de quebracho", "price": "$40.000" },
+        { "name": "Vacío", "desc": "6 hs", "price": "$44.000" },
+        { "name": "Ribs de cerdo", "desc": "5 hs", "price": "$42.500" },
+        { "name": "Asado Ventana del Centro", "desc": "6 hs", "price": "$57.000" }
+      ]
+    },
+    {
+      "id": "brasas",
+      "name": "A las Brasas",
+      "items": [
+        { "name": "Filet de pollo", "desc": "", "price": "$30.000" },
+        { "name": "Steak de salmón", "desc": "", "price": "$58.000" },
+        { "name": "Entraña", "desc": "", "price": "$57.000" },
+        { "name": "Ojo de bife", "desc": "", "price": "$59.000" }
+      ]
+    },
+    {
+      "id": "sandwiches",
+      "name": "Sandwiches",
+      "note": "Todos incluyen papas fritas.",
+      "items": [
+        { "name": "Sandwich Brisket", "desc": "", "price": "$33.000" },
+        { "name": "Colita de cuadril spicy", "desc": "", "price": "$33.000" },
+        { "name": "Pulled Pork", "desc": "", "price": "$33.000" },
+        { "name": "Pollo ahumado con panceta", "desc": "", "price": "$33.000" },
+        { "name": "Salmón", "desc": "", "price": "$37.000" },
+        { "name": "Vacío ahumado", "desc": "", "price": "$37.000" },
+        { "name": "HOT TEX", "desc": "Salchicha texana", "price": "$30.000" }
+      ]
+    },
+    {
+      "id": "especiales",
+      "name": "Especiales",
+      "items": [
+        { "name": "Patagona", "desc": "Milanesa napolitana ahumada", "price": "$31.000" }
+      ]
+    },
+    {
+      "id": "ensaladas",
+      "name": "Ensaladas y Guarniciones",
+      "items": [
+        { "name": "César con pollo ahumado", "desc": "", "price": "$27.000" },
+        { "name": "Rúcula con parmesano y tomates cherry", "desc": "", "price": "$27.000" },
+        { "name": "Pera, queso azul, rúcula y langostinos", "desc": "", "price": "$30.000" },
+        { "name": "Coleslaw", "desc": "", "price": "$17.000" },
+        { "name": "Vegetales asados", "desc": "", "price": "$17.000" },
+        { "name": "Papas fritas", "desc": "", "price": "$17.000" },
+        { "name": "Papas con salsa brava ahumada", "desc": "", "price": "$19.000" },
+        { "name": "Puré de papas, calabaza o mixto", "desc": "", "price": "$17.000" }
+      ]
+    },
+    {
+      "id": "pastas",
+      "name": "Pastas y Arroces",
+      "items": [
+        { "name": "Agnolotis de cordero", "desc": "", "price": "$31.000" },
+        { "name": "Sorrentinos de ternera y queso azul", "desc": "", "price": "$31.000" },
+        { "name": "Lasagna de verduras y carne ahumada", "desc": "", "price": "$34.500" },
+        { "name": "Ñoquis de papa", "desc": "", "price": "$27.000" },
+        { "name": "Sorrentinos de jamón y queso", "desc": "", "price": "$30.000" },
+        { "name": "Canelones de espinacas y parmesano", "desc": "", "price": "$30.000" },
+        { "name": "Risotto con frutos de mar", "desc": "", "price": "$33.000" }
+      ]
+    },
+    {
+      "id": "infantil",
+      "name": "Menú Infantil",
+      "items": [
+        { "name": "Milanesas de peceto con papas fritas", "desc": "", "price": "$22.000" },
+        { "name": "Tallarines con salsa rosa", "desc": "", "price": "$17.000" },
+        { "name": "Nuggets con papas fritas", "desc": "", "price": "$20.000" }
+      ]
+    },
+    {
+      "id": "postres",
+      "name": "Postres",
+      "items": [
+        { "name": "Cheese Cake de Dulce de Leche Garage", "desc": "", "price": "$22.000" },
+        { "name": "Tiramisú", "desc": "", "price": "$20.000" },
+        { "name": "Panqueques de manzana", "desc": "", "price": "$17.000" },
+        { "name": "Flan tradicional", "desc": "", "price": "$9.500" },
+        { "name": "Helados 2 sabores", "desc": "", "price": "$9.800" }
+      ]
+    },
+    {
+      "id": "cervezas",
+      "name": "Cervezas",
+      "items": [
+        { "name": "Heineken lata 473", "desc": "", "price": "$7.000" },
+        { "name": "Imperial lata 473", "desc": "Varios estilos", "price": "$6.500" },
+        { "name": "Grolsch lata 473", "desc": "", "price": "$8.000" },
+        { "name": "Kunstmann lata 473", "desc": "", "price": "$8.000" },
+        { "name": "Heineken tirada", "desc": "330 / 500 cc", "price": "$6.000 / $8.500" },
+        { "name": "Artesanal tirada", "desc": "330 / 500 cc", "price": "$6.500 / $9.000" },
+        { "name": "Cerveza Artesanal Crafter lata", "desc": "", "price": "$8.500" },
+        { "name": "Heineken sin alcohol", "desc": "", "price": "$6.000" }
+      ]
+    },
+    {
+      "id": "aguas",
+      "name": "Aguas y Gaseosas",
+      "items": [
+        { "name": "Agua sin o con gas", "desc": "", "price": "$5.000" },
+        { "name": "Coca Cola / Sprite", "desc": "", "price": "$6.500" },
+        { "name": "Aquarius", "desc": "Varios", "price": "$6.000" },
+        { "name": "Schweppes Pomelo", "desc": "", "price": "$6.500" }
+      ]
+    },
+    {
+      "id": "tragos",
+      "name": "Tragos Signature",
+      "items": [
+        { "name": "Fangio, Fórmula 1, Autódromo, Mustang, Derrape, Fierreros, TC 2000, Pistón, West", "desc": "Cócteles de autor de la casa", "price": "$18.000" },
+        { "name": "Clásicos", "desc": "Negroni, Martini, Margarita, Cosmopolitan, Old Fashioned", "price": "$15.000" },
+        { "name": "Caipirinhas y Mojitos", "desc": "", "price": "$15.000" },
+        { "name": "Coctelería licuada", "desc": "", "price": "$14.500" }
+      ]
+    },
+    {
+      "id": "vinos",
+      "name": "Vinos",
+      "items": [
+        { "name": "Tomero Chardonnay / Sauvignon Blanc", "desc": "", "price": "$25.000" },
+        { "name": "Malma Familia", "desc": "", "price": "$30.000" },
+        { "name": "Salentein Reserva", "desc": "", "price": "$33.000" },
+        { "name": "DV Catena", "desc": "", "price": "$40.000" },
+        { "name": "El Enemigo", "desc": "", "price": "$45.000" },
+        { "name": "Hermandad Malbec", "desc": "", "price": "$48.000" }
+      ]
+    },
+    {
+      "id": "espumantes",
+      "name": "Espumantes",
+      "items": [
+        { "name": "Chandon", "desc": "Varios", "price": "$35.000" },
+        { "name": "Baron B", "desc": "", "price": "$65.000" },
+        { "name": "Rutini Extra Brut", "desc": "", "price": "$65.000" }
+      ]
+    },
+    {
+      "id": "cafeteria",
+      "name": "Cafetería",
+      "items": [
+        { "name": "Café expresso", "desc": "", "price": "$3.000" },
+        { "name": "Café con crema", "desc": "", "price": "$3.500" },
+        { "name": "Capuccino", "desc": "", "price": "$4.500" },
+        { "name": "Café con leche", "desc": "", "price": "$3.800" },
+        { "name": "Té", "desc": "", "price": "$3.500" },
+        { "name": "Chocolate / Submarino", "desc": "", "price": "$3.800 / $4.500" }
+      ]
+    }
+  ]
+}

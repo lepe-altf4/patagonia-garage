@@ -1,0 +1,68 @@
+{
+  "brisket": {
+    "src": "assets/img/brisket.jpg",
+    "title": "Mmm... smoked brisket",
+    "creator": "jeffreyw",
+    "creator_url": "https://www.flickr.com/photos/7927684@N03",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/7927684@N03/8521334676",
+    "source": "flickr"
+  },
+  "ribs": {
+    "src": "assets/img/ribs.jpg",
+    "title": "ribs at The Spare Rib",
+    "creator": "Southern Foodways Alliance",
+    "creator_url": "https://www.flickr.com/photos/25257922@N07",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/25257922@N07/3500462887",
+    "source": "flickr"
+  },
+  "vacio": {
+    "src": "assets/img/vacio.jpg",
+    "title": "Flank steak",
+    "creator": "gbergin",
+    "creator_url": "https://www.flickr.com/photos/16662833@N00",
+    "license": "by-sa",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/16662833@N00/14182101719",
+    "source": "flickr"
+  },
+  "asado": {
+    "src": "assets/img/asado.jpg",
+    "title": "Asado",
+    "creator": "Ruanon",
+    "creator_url": "https://www.flickr.com/photos/70873497@N02",
+    "license": "by-sa",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/70873497@N02/8133093406",
+    "source": "flickr"
+  },
+  "garage": {
+    "src": "assets/img/garage.jpg",
+    "title": "Steel Car Garage",
+    "creator": "SteelMaster Buildings",
+    "creator_url": "https://www.flickr.com/photos/35055618@N07",
+    "license": "by-sa",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/35055618@N07/19046084893",
+    "source": "flickr"
+  },
+  "patagonia": {
+    "src": "assets/img/patagonia.jpg",
+    "title": "Patagonia mountain landscape",
+    "creator": "Unknown",
+    "creator_url": "",
+    "license": "cc0",
+    "license_version": "1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "foreign_landing_url": "https://www.rawpixel.com/image/5904887/photo-image-public-domain-trees-nature",
+    "source": "rawpixel"
+  }
+}

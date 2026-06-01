@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patagonia Garage — Parrilla, Ahumados & Resto Bar · Neuquén</title>
+  <meta name="description" content="Ahumados de fuego lento, tragos con nombre de leyenda y la Patagonia en cada plato. Parrilla & Resto Bar en Antártida Argentina 540, Neuquén." />
+  <meta name="theme-color" content="#0a0604" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:title" content="Patagonia Garage — Parrilla & Resto Bar · Neuquén" />
+  <meta property="og:description" content="Ahumados de fuego lento, tragos con nombre de auto y la Patagonia en la mesa." />
+  <meta property="og:type" content="restaurant" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+
+  <link rel="stylesheet" href="styles.css?v=20260602" />
+</head>
+<body>
+  <a class="skip-link" href="#ahumador">Saltar al contenido</a>
+
+  <!-- Splash -->
+  <div class="splash" data-splash aria-hidden="true">
+    <div class="splash-inner">
+      <span class="splash-mark">PG</span>
+      <span class="splash-line"></span>
+      <span class="splash-word">PATAGONIA GARAGE</span>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" data-cursor-root aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-ring"></span>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+  <!-- Persistent 3D scene + contrast layers -->
+  <div class="stage" aria-hidden="true">
+    <div class="stage-fallback"></div>
+    <div class="stage-canvas" data-canvas></div>
+    <div class="scrim"></div>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" data-nav>
+    <a class="nav-brand" href="#inicio" aria-label="Patagonia Garage — inicio">
+      <span class="nav-brand-mark">PG</span>
+      <span class="nav-brand-text">Patagonia&nbsp;Garage</span>
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a class="nav-link" href="#ahumador">El Ahumador</a>
+      <a class="nav-link" href="#tragos">Tragos</a>
+      <a class="nav-link" href="#carta">Carta</a>
+      <a class="nav-link" href="#llegar">Cómo llegar</a>
+    </nav>
+    <a class="nav-cta" data-whatsapp href="https://wa.me/5492995725204?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Patagonia%20Garage" target="_blank" rel="noopener">
+      Reservá tu mesa
+    </a>
+    <button class="nav-burger" data-burger aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="nav-mobile" data-mobile-menu aria-hidden="true">
+    <a class="nav-mobile-link" href="#ahumador">El Ahumador</a>
+    <a class="nav-mobile-link" href="#tragos">Tragos</a>
+    <a class="nav-mobile-link" href="#carta">Carta</a>
+    <a class="nav-mobile-link" href="#reservas">Reservas</a>
+    <a class="nav-mobile-link" href="#llegar">Cómo llegar</a>
+    <a class="nav-mobile-cta" data-whatsapp href="https://wa.me/5492995725204?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Patagonia%20Garage" target="_blank" rel="noopener">Reservá por WhatsApp</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <p class="hero-kicker">Parrilla · Ahumados · Resto Bar — Neuquén</p>
+        <h1 class="hero-title">
+          <span class="l1">Patagonia</span>
+          <span class="l2">Garage</span>
+        </h1>
+        <p class="hero-sub" data-reveal>
+          Fuego lento, fierros con historia y la Patagonia en la mesa.
+          Ahumados que tardan horas y tragos que llevan nombre de leyenda.
+        </p>
+        <div class="hero-actions" data-reveal>
+          <a class="btn btn-fire" data-whatsapp href="https://wa.me/5492995725204?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Patagonia%20Garage" target="_blank" rel="noopener">
+            <span>Reservá tu mesa</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#ahumador">Ver el ahumador</a>
+        </div>
+        <div class="hero-meta" data-reveal>
+          <span class="dot"></span>
+          <span>Antártida Argentina 540 · Neuquén</span>
+        </div>
+      </div>
+      <a class="hero-scroll" href="#ahumador" aria-label="Bajar">
+        <span>Scroll</span>
+        <span class="hero-scroll-bar"><i></i></span>
+      </a>
+    </section>
+
+    <!-- ===================== EL AHUMADOR ===================== -->
+    <section class="section smoker" id="ahumador" data-section>
+      <div class="section-head">
+        <p class="kicker" data-reveal><span class="kicker-no">01</span> El Ahumador</p>
+        <h2 class="section-title" data-split="words">Lo bueno<br>no tiene&nbsp;apuro.</h2>
+        <p class="section-lead" data-reveal>
+          Quebracho, paciencia y un termómetro que no miente. Cada corte pasa horas
+          sobre la brasa hasta que el humo hace lo suyo. Estos son los que mandan.
+        </p>
+      </div>
+
+      <div class="dishes" data-dishes>
+
+        <article class="dish" data-reveal>
+          <figure class="dish-media">
+            <div class="dish-frame"><img src="assets/img/brisket.jpg" alt="Brisket ahumado en rodajas con corteza negra y anillo de humo" loading="lazy" decoding="async" data-parallax /></div>
+            <div class="dish-gauge"><span class="g-num" data-count-to="12">12</span><span class="g-unit">h</span><span class="g-label">de humo</span></div>
+          </figure>
+          <div class="dish-body">
+            <p class="dish-index">N.º 01 — Quebracho</p>
+            <h3 class="dish-name">Brisket</h3>
+            <p class="dish-cut">Pecho de novillo entero</p>
+            <p class="dish-desc">Doce horas sobre brasa de quebracho. Corteza negra de pimienta, anillo de humo rosado y un interior que se deshace sin cuchillo.</p>
+          </div>
+        </article>
+
+        <article class="dish dish--rev" data-reveal>
+          <figure class="dish-media">
+            <div class="dish-frame"><img src="assets/img/ribs.jpg" alt="Costillar de cerdo glaseado sobre la parrilla" loading="lazy" decoding="async" data-parallax /></div>
+            <div class="dish-gauge"><span class="g-num" data-count-to="5">5</span><span class="g-unit">h</span><span class="g-label">de humo</span></div>
+          </figure>
+          <div class="dish-body">
+            <p class="dish-index">N.º 02 — Humo dulce</p>
+            <h3 class="dish-name">Ribs de cerdo</h3>
+            <p class="dish-cut">Costillar entero glaseado</p>
+            <p class="dish-desc">Cinco horas de humo dulce y glaseado lento. Carne que se desprende del hueso de un mordisco. Pegajoso, profundo, adictivo.</p>
+          </div>
+        </article>
+
+        <article class="dish" data-reveal>
+          <figure class="dish-media">
+            <div class="dish-frame"><img src="assets/img/vacio.jpg" alt="Vacío grillado en rodajas, jugoso y rosado" loading="lazy" decoding="async" data-parallax /></div>
+            <div class="dish-gauge"><span class="g-num" data-count-to="6">6</span><span class="g-unit">h</span><span class="g-label">a fuego manso</span></div>
+          </figure>
+          <div class="dish-body">
+            <p class="dish-index">N.º 03 — Fuego manso</p>
+            <h3 class="dish-name">Vacío</h3>
+            <p class="dish-cut">Vacío entero a fuego manso</p>
+            <p class="dish-desc">Seis horas a fuego manso hasta que las fibras ceden. Borde crocante, centro jugoso y rosado. El clásico llevado al límite.</p>
+          </div>
+        </article>
+
+        <article class="dish dish--rev" data-reveal>
+          <figure class="dish-media">
+            <div class="dish-frame"><img src="assets/img/asado.jpg" alt="Asado a la brasa viva con fuego de quebracho" loading="lazy" decoding="async" data-parallax /></div>
+            <div class="dish-gauge"><span class="g-num" data-count-to="6">6</span><span class="g-unit">h</span><span class="g-label">de brasa viva</span></div>
+          </figure>
+          <div class="dish-body">
+            <p class="dish-index">N.º 04 — La del medio</p>
+            <h3 class="dish-name">Asado ventana del centro</h3>
+            <p class="dish-cut">Tira ancha, la del medio</p>
+            <p class="dish-desc">La ventana del centro: la tira más ancha y sabrosa. Seis horas de brasa viva, hueso que perfuma y grasa que canta.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== TRAGOS ===================== -->
+    <section class="section drinks" id="tragos" data-section>
+      <div class="section-head">
+        <p class="kicker" data-reveal><span class="kicker-no">02</span> La barra</p>
+        <h2 class="section-title" data-split="words">Tragos con<br>nombre de&nbsp;leyenda.</h2>
+        <p class="section-lead" data-reveal>
+          Nueve cocktails, nueve fierros. Cada uno con su ficha técnica: base, graduación
+          y cuánto pisa el acelerador. Elegí tu máquina.
+        </p>
+      </div>
+
+      <div class="specs" data-cocktails>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">01</span></header>
+          <h3 class="spec-name">Fangio</h3>
+          <p class="spec-model">El Quíntuple</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Whisky ahumado</dd></div>
+            <div><dt>Grad.</dt><dd>32°</dd></div>
+            <div><dt>Perfil</dt><dd>Ahumado · vermouth · piel de naranja</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="96"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">02</span></header>
+          <h3 class="spec-name">Fórmula 1</h3>
+          <p class="spec-model">Pole position</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Gin + espumante</dd></div>
+            <div><dt>Grad.</dt><dd>18°</dd></div>
+            <div><dt>Perfil</dt><dd>Cítrico eléctrico · burbuja seca</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="100"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">03</span></header>
+          <h3 class="spec-name">Autódromo</h3>
+          <p class="spec-model">Vuelta rápida</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Fernet + cola</dd></div>
+            <div><dt>Grad.</dt><dd>22°</dd></div>
+            <div><dt>Perfil</dt><dd>Amargo herbal · clásico de tribuna</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="84"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">04</span></header>
+          <h3 class="spec-name">Mustang</h3>
+          <p class="spec-model">V8 sin filtro</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Bourbon</dd></div>
+            <div><dt>Grad.</dt><dd>30°</dd></div>
+            <div><dt>Perfil</dt><dd>Roble · vainilla · potencia</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="92"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">05</span></header>
+          <h3 class="spec-name">Derrape</h3>
+          <p class="spec-model">Al límite</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Mezcal</dd></div>
+            <div><dt>Grad.</dt><dd>28°</dd></div>
+            <div><dt>Perfil</dt><dd>Ahumado picante · cítrico al borde</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="88"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">06</span></header>
+          <h3 class="spec-name">Fierreros</h3>
+          <p class="spec-model">De taller</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Ron añejo</dd></div>
+            <div><dt>Grad.</dt><dd>26°</dd></div>
+            <div><dt>Perfil</dt><dd>Caramelo · especias · sobremesa</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="76"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">07</span></header>
+          <h3 class="spec-name">TC 2000</h3>
+          <p class="spec-model">Categoría reina</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Vodka cítrico</dd></div>
+            <div><dt>Grad.</dt><dd>20°</dd></div>
+            <div><dt>Perfil</dt><dd>Fresco · pomelo · refrigerado</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="72"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">08</span></header>
+          <h3 class="spec-name">Pistón</h3>
+          <p class="spec-model">Alta compresión</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Espresso + vodka</dd></div>
+            <div><dt>Grad.</dt><dd>24°</dd></div>
+            <div><dt>Perfil</dt><dd>Café intenso · cacao · motor</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="86"></i></span></div>
+        </article>
+
+        <article class="spec" data-tilt data-reveal>
+          <header class="spec-top"><span class="spec-tag">Modelo</span><span class="spec-num">09</span></header>
+          <h3 class="spec-name">West</h3>
+          <p class="spec-model">Rumbo al oeste</p>
+          <dl class="spec-rows">
+            <div><dt>Base</dt><dd>Gin patagónico</dd></div>
+            <div><dt>Grad.</dt><dd>21°</dd></div>
+            <div><dt>Perfil</dt><dd>Calafate · enebro · frutos del bosque</dd></div>
+          </dl>
+          <div class="rpm"><span class="rpm-label">Potencia</span><span class="rpm-bar"><i data-rpm="68"></i></span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== CARTA ===================== -->
+    <section class="section carta" id="carta" data-section>
+      <div class="section-head">
+        <p class="kicker" data-reveal><span class="kicker-no">03</span> La carta completa</p>
+        <h2 class="section-title" data-split="words">Todo lo que sale<br>del garage.</h2>
+        <p class="section-lead" data-reveal>
+          Entradas, ahumados, principales, guarniciones, postres y la barra entera.
+          Elegí una categoría y mirá los precios al instante.
+        </p>
+      </div>
+
+      <div class="carta-menu" data-menu-root data-reveal>
+        <div class="carta-tabs" data-menu-tabs role="tablist" aria-label="Categorías de la carta"></div>
+        <div class="carta-panels" data-menu-panels aria-live="polite">
+          <p class="carta-loading">Cargando la carta…</p>
+        </div>
+        <p class="carta-note" data-menu-note></p>
+      </div>
+    </section>
+
+    <!-- ===================== RESERVAS ===================== -->
+    <section class="section reservas" id="reservas" data-section>
+      <div class="reservas-bg" data-parallax-res style="background-image:url('assets/img/patagonia.jpg')"></div>
+      <div class="reservas-inner">
+        <p class="kicker" data-reveal><span class="kicker-no">04</span> Reservas</p>
+        <h2 class="reservas-title" data-split="words">Guardamos<br>la brasa para&nbsp;vos.</h2>
+        <p class="section-lead" data-reveal>
+          Mesa para la previa, la sobremesa larga o el cumpleaños fierrero.
+          Escribinos por WhatsApp y lo arreglamos en un mensaje.
+        </p>
+        <a class="btn btn-wa btn-lg" data-whatsapp href="https://wa.me/5492995725204?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Patagonia%20Garage" target="_blank" rel="noopener" data-reveal>
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.9-.1 1.5Z"/></svg>
+          <span>Reservá por WhatsApp</span>
+        </a>
+        <p class="reservas-alt" data-reveal>
+          O escribinos por Instagram <a data-ig href="https://www.instagram.com/patagoniagarage/" target="_blank" rel="noopener">@patagoniagarage</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== CÓMO LLEGAR ===================== -->
+    <section class="section llegar" id="llegar" data-section>
+      <div class="section-head">
+        <p class="kicker" data-reveal><span class="kicker-no">05</span> Cómo llegar</p>
+        <h2 class="section-title" data-split="words">En el corazón<br>de Neuquén.</h2>
+      </div>
+      <div class="llegar-grid">
+        <div class="llegar-info" data-reveal>
+          <div class="info-block">
+            <span class="info-label">Dirección</span>
+            <p class="info-big">Antártida Argentina 540</p>
+            <p class="info-sub">Neuquén Capital · Patagonia, Argentina</p>
+            <a class="info-link" data-maps href="https://www.google.com/maps/search/?api=1&query=Ant%C3%A1rtida%20Argentina%20540%2C%20Neuqu%C3%A9n%2C%20Argentina" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>
+          </div>
+          <div class="info-block">
+            <span class="info-label">Horarios</span>
+            <ul class="info-hours" data-hours>
+              <li><span>Mar – Jue</span><span>19:30 – 00:30</span></li>
+              <li><span>Vie – Sáb</span><span>12:30 – 15:30 · 19:30 – 01:30</span></li>
+              <li><span>Domingo</span><span>12:30 – 16:00</span></li>
+              <li><span>Lunes</span><span>Cerrado</span></li>
+            </ul>
+          </div>
+          <div class="info-block">
+            <span class="info-label">Seguinos</span>
+            <a class="info-link" data-ig href="https://www.instagram.com/patagoniagarage/" target="_blank" rel="noopener">Instagram @patagoniagarage ↗</a>
+          </div>
+        </div>
+        <div class="llegar-map" data-reveal>
+          <iframe
+            title="Mapa — Antártida Argentina 540, Neuquén"
+            src="https://www.google.com/maps?q=Ant%C3%A1rtida%20Argentina%20540%2C%20Neuqu%C3%A9n%2C%20Argentina&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-mark">PG</span>
+        <p class="footer-name">Patagonia Garage</p>
+        <p class="footer-tag">Parrilla · Ahumados · Resto Bar</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="#ahumador">El Ahumador</a>
+        <a href="#tragos">Tragos</a>
+        <a href="#carta">Carta</a>
+        <a data-ig href="https://www.instagram.com/patagoniagarage/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a data-whatsapp href="https://wa.me/5492995725204?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Patagonia%20Garage" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> Patagonia Garage · Antártida Argentina 540, Neuquén</p>
+      <p class="footer-credits">Imágenes bajo licencias Creative Commons. <a href="creditos.html">Créditos fotográficos →</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts: libs first (defer keeps order), then data, scene, entry -->
+  <script defer src="lib/gsap.min.js"></script>
+  <script defer src="lib/ScrollTrigger.min.js"></script>
+  <script defer src="lib/three.min.js"></script>
+  <script defer src="lib/manifest.js?v=20260602"></script>
+  <script defer src="lib/three-scene.js?v=20260602"></script>
+  <script defer src="main.js?v=20260602"></script>
+</body>
+</html>

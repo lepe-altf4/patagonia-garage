@@ -1,0 +1,18 @@
+# Netlify headers — cache strategy (mirror of .htaccess for Apache/Hostinger)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Documents & code: always revalidate (no stale code after deploy)
+/*.html
+  Cache-Control: no-cache, must-revalidate
+/*.css
+  Cache-Control: no-cache, must-revalidate
+/*.js
+  Cache-Control: no-cache, must-revalidate
+/*.json
+  Cache-Control: no-cache, must-revalidate
+
+# Images & fonts: cache long (rename to bust)
+/assets/img/*
+  Cache-Control: public, max-age=2592000

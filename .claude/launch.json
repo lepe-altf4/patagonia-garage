@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "patagonia-garage",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:\\Users\\PC\\patagonia-garage\\tools\\serve.mjs", "8765"],
+      "port": 8765
+    }
+  ]
+}
