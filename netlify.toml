@@ -1,0 +1,12 @@
+# Configuración de Netlify para Patagonia Garage
+# Sitio estático (HTML + CSS + JS puro). No hay build.
+# Los headers de caché siguen viviendo en el archivo _headers.
+
+[build]
+  # Publicamos la carpeta tal cual: no se compila nada.
+  publish = "."
+  command = ""
+
+[build.environment]
+  # Evita que Netlify intente instalar dependencias innecesarias.
+  NETLIFY_USE_YARN = "false"
