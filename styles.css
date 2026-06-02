@@ -126,19 +126,7 @@ ul { list-style: none; padding: 0; }
 @keyframes markPulse { to { filter: drop-shadow(0 0 40px rgba(255,90,31,.9)); } }
 @keyframes lineGrow { to { width: min(280px, 60vw); } }
 
-/* 5. Custom cursor -------------------------------------------- */
-.cursor { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  display: none; mix-blend-mode: difference; opacity: 0; transition: opacity .25s var(--ease-out); }
-.cursor.is-ready { opacity: 1; }
-@media (hover: hover) and (pointer: fine) { .cursor { display: block; } }
-.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; will-change: transform; }
-.cursor-dot { width: 6px; height: 6px; margin: -3px; background: #fff; border-radius: 50%; }
-.cursor-ring { width: 34px; height: 34px; margin: -17px; border: 1px solid #fff; border-radius: 50%;
-  transition: width .35s var(--ease-out), height .35s var(--ease-out), margin .35s var(--ease-out); }
-.cursor.is-interactive .cursor-ring { width: 56px; height: 56px; margin: -28px; }
-.has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
-
-/* 6. Scroll progress ------------------------------------------ */
+/* 5. Scroll progress ------------------------------------------ */
 .scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200;
   background: rgba(255,255,255,0.05); pointer-events: none; }
 .scroll-progress span { display: block; height: 100%; transform-origin: 0 0; transform: scaleX(0);
@@ -341,77 +329,31 @@ ul { list-style: none; padding: 0; }
   background: linear-gradient(90deg, var(--brass-2), var(--ember) 70%, var(--ember-deep));
   box-shadow: 0 0 12px rgba(255,90,31,.6); transition: width 1.3s var(--ease-out); }
 
-/* 13. CARTA (carta digital integrada) ------------------------- */
+/* 13. CARTA (acceso a la carta digital + QR) ------------------ */
 .carta { background: linear-gradient(180deg, transparent, rgba(10,6,4,.5) 12%, rgba(10,6,4,.62) 88%, transparent); }
-.carta-menu { position: relative; }
-
-/* Tabs — chips horizontales con scroll en mobile */
-.carta-tabs {
-  position: sticky; top: 58px; z-index: 6;
-  display: flex; gap: .55rem; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden;
-  padding: .7rem clamp(.2rem, 2vw, .4rem); margin: 0 calc(var(--pad) * -1) 1.8rem; padding-inline: var(--pad);
-  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  background: linear-gradient(180deg, rgba(10,6,4,.92), rgba(10,6,4,.78) 70%, transparent);
-  backdrop-filter: blur(10px) saturate(1.15);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+.carta-access {
+  display: grid; gap: clamp(2rem, 5vw, 3rem); align-items: center;
+  padding: clamp(1.8rem, 4vw, 2.6rem);
+  border: 1px solid var(--line); border-radius: 18px;
+  background: linear-gradient(180deg, rgba(26,16,10,.78), rgba(14,9,6,.82));
+  box-shadow: 0 40px 80px -40px rgba(0,0,0,.9);
 }
-.carta-tabs::-webkit-scrollbar { display: none; }
-.carta-tab {
-  flex: 0 0 auto; scroll-snap-align: start;
-  padding: .6rem 1.05rem; border-radius: 999px;
-  font-family: var(--mono); font-size: .76rem; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--text-mute); white-space: nowrap;
-  background: rgba(255,255,255,.035); border: 1px solid var(--line);
-  transition: color .3s, background .3s, border-color .3s, transform .3s var(--ease-soft);
+.carta-access-text .btn { margin-bottom: 1.2rem; }
+.carta-access-hint { color: var(--text-mute); font-size: 1.02rem; max-width: 42ch;
+  text-shadow: 0 2px 14px rgba(0,0,0,.6); }
+.carta-qr {
+  display: flex; flex-direction: column; align-items: center; gap: .9rem;
+  text-align: center; margin: 0;
 }
-.carta-tab:hover { color: var(--text); border-color: var(--brass); }
-.carta-tab[aria-selected="true"] {
-  color: #18100a; font-weight: 700; border-color: transparent;
-  background: linear-gradient(135deg, var(--ember-2), var(--ember-deep));
-  box-shadow: 0 8px 22px -8px rgba(255,90,31,.7);
+.carta-qr img {
+  width: clamp(140px, 38vw, 180px); height: auto; border-radius: 12px;
+  padding: 10px; background: #fff;
+  box-shadow: 0 16px 40px -16px rgba(0,0,0,.8), 0 0 0 1px var(--line);
 }
-
-/* Panels */
-.carta-panels { min-height: 240px; }
-.carta-panel { display: none; animation: cartaFade .5s var(--ease-out); }
-.carta-panel.is-active { display: block; }
-@keyframes cartaFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.carta-panel-head {
-  font-family: var(--mono); font-size: .72rem; letter-spacing: .12em;
-  color: var(--brass-2); margin-bottom: 1.2rem; padding-left: .1rem;
-}
-.carta-panel-head::before { content: "↳ "; color: var(--ember); }
-
-.carta-list { display: grid; gap: 0; }
-.carta-item {
-  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
-  padding: .95rem .2rem; border-bottom: 1px dashed var(--line);
-}
-.carta-item:last-child { border-bottom: 0; }
-.carta-item-main { min-width: 0; }
-.carta-item-name {
-  display: block; font-family: var(--sans); font-weight: 600; font-size: 1.04rem;
-  letter-spacing: .005em; color: var(--text); text-wrap: balance;
-}
-.carta-item-desc { display: block; margin-top: .2rem; font-size: .88rem; color: var(--text-mute); text-wrap: pretty; }
-.carta-item-price {
-  flex: 0 0 auto; font-family: var(--display); font-size: clamp(1.15rem, 3.5vw, 1.5rem);
-  letter-spacing: .01em; line-height: 1; white-space: nowrap;
-  background: linear-gradient(120deg, var(--brass-2), var(--ember-2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.carta-note { margin-top: 2rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .04em;
-  color: var(--text-dim); text-align: center; }
-.carta-loading, .carta-fallback { font-family: var(--mono); font-size: .85rem; color: var(--text-mute);
-  padding: 2rem .2rem; text-align: center; }
-.carta-fallback a { color: var(--brass-2); border-bottom: 1px solid var(--line); }
-
-/* Carta: 2 columnas en pantallas anchas para categorías largas */
-@media (min-width: 860px) {
-  .carta-list { grid-template-columns: repeat(2, 1fr); column-gap: clamp(2.5rem, 5vw, 4.5rem); }
-  .carta-item { padding-inline: 0; }
+.carta-qr figcaption { font-family: var(--mono); font-size: .74rem; letter-spacing: .06em;
+  color: var(--brass-2); text-transform: uppercase; }
+@media (min-width: 760px) {
+  .carta-access { grid-template-columns: 1.3fr auto; }
 }
 
 /* 14. RESERVAS ------------------------------------------------ */

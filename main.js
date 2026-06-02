@@ -6,7 +6,6 @@
 
   var data = window.__BRAND__ || {};
   var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var fineHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -52,33 +51,6 @@
     });
     $$(".nav-mobile-link, .nav-mobile-cta", menu).forEach(function (a) {
       a.addEventListener("click", function () { setOpen(false); });
-    });
-  }
-
-  /* --- Custom cursor --- */
-  function initCursor() {
-    var root = $("[data-cursor-root]");
-    if (!root || !fineHover) return;
-    document.documentElement.classList.add("has-cursor");
-    var ring = $(".cursor-ring", root), dot = $(".cursor-dot", root);
-    var tx = 0, ty = 0, rx = 0, ry = 0, first = false;
-    window.addEventListener("mousemove", function (e) {
-      tx = e.clientX; ty = e.clientY;
-      if (dot) dot.style.transform = "translate3d(" + tx + "px," + ty + "px,0)";
-      if (!first) { first = true; rx = tx; ry = ty; root.classList.add("is-ready"); }
-    }, { passive: true });
-    (function tick() {
-      rx += (tx - rx) * 0.2; ry += (ty - ry) * 0.2;
-      if (ring) ring.style.transform = "translate3d(" + rx + "px," + ry + "px,0)";
-      requestAnimationFrame(tick);
-    })();
-    var HOV = "a[href], button, .spec, .dish-frame, [data-tilt]";
-    document.addEventListener("mouseover", function (e) {
-      if (e.target.closest(HOV)) root.classList.add("is-interactive");
-    });
-    document.addEventListener("mouseout", function (e) {
-      if (e.target.closest(HOV) && !(e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest(HOV)))
-        root.classList.remove("is-interactive");
     });
   }
 
@@ -175,93 +147,6 @@
     }, 6000);
   }
 
-  /* --- Carta digital (reads assets/data/menu.json, renders tabs) --- */
-  function initMenu() {
-    var root = $("[data-menu-root]");
-    if (!root) return;
-    var tabsEl = $("[data-menu-tabs]", root);
-    var panelsEl = $("[data-menu-panels]", root);
-    var noteEl = $("[data-menu-note]", root);
-    if (!tabsEl || !panelsEl) return;
-
-    fetch("assets/data/menu.json", { cache: "no-cache" })
-      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (menu) { renderMenu(menu, tabsEl, panelsEl, noteEl); })
-      .catch(function (err) {
-        console.warn("[menu]", err);
-        panelsEl.innerHTML =
-          '<p class="carta-fallback">No pudimos cargar la carta en este momento. ' +
-          'Probá <a href="">recargar la página</a>.</p>';
-      });
-  }
-
-  function renderMenu(menu, tabsEl, panelsEl, noteEl) {
-    var cats = (menu && menu.categories) || [];
-    if (!cats.length) return;
-
-    var tabsHTML = "", panelsHTML = "";
-    cats.forEach(function (cat, i) {
-      var tabId = "carta-tab-" + cat.id, panelId = "carta-panel-" + cat.id;
-      var active = i === 0;
-      tabsHTML +=
-        '<button class="carta-tab" id="' + tabId + '" role="tab" type="button"' +
-        ' aria-controls="' + panelId + '" aria-selected="' + active + '"' +
-        ' tabindex="' + (active ? "0" : "-1") + '">' + escHTML(cat.name) + "</button>";
-
-      var rows = (cat.items || []).map(function (it) {
-        var desc = it.desc ? '<span class="carta-item-desc">' + escHTML(it.desc) + "</span>" : "";
-        return (
-          '<li class="carta-item">' +
-            '<span class="carta-item-main">' +
-              '<span class="carta-item-name">' + escHTML(it.name) + "</span>" + desc +
-            "</span>" +
-            '<span class="carta-item-price">' + escHTML(it.price) + "</span>" +
-          "</li>"
-        );
-      }).join("");
-
-      var head = cat.note ? '<p class="carta-panel-head">' + escHTML(cat.note) + "</p>" : "";
-      panelsHTML +=
-        '<div class="carta-panel' + (active ? " is-active" : "") + '" id="' + panelId + '"' +
-        ' role="tabpanel" aria-labelledby="' + tabId + '"' + (active ? "" : " hidden") + ">" +
-        head + '<ul class="carta-list">' + rows + "</ul></div>";
-    });
-
-    tabsEl.innerHTML = tabsHTML;
-    panelsEl.innerHTML = panelsHTML;
-    if (noteEl && menu.note) noteEl.textContent = menu.note;
-
-    var tabs = $$(".carta-tab", tabsEl);
-    var panels = $$(".carta-panel", panelsEl);
-
-    function activate(idx, focus) {
-      tabs.forEach(function (t, i) {
-        var on = i === idx;
-        t.setAttribute("aria-selected", String(on));
-        t.tabIndex = on ? 0 : -1;
-        if (on && focus) t.focus();
-        if (on) t.scrollIntoView({ block: "nearest", inline: "center", behavior: reduced ? "auto" : "smooth" });
-      });
-      panels.forEach(function (p, i) {
-        var on = i === idx;
-        p.classList.toggle("is-active", on);
-        if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
-      });
-    }
-
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener("click", function () { activate(i, false); });
-      tab.addEventListener("keydown", function (e) {
-        var n = tabs.length, idx = -1;
-        if (e.key === "ArrowRight") idx = (i + 1) % n;
-        else if (e.key === "ArrowLeft") idx = (i - 1 + n) % n;
-        else if (e.key === "Home") idx = 0;
-        else if (e.key === "End") idx = n - 1;
-        if (idx >= 0) { e.preventDefault(); activate(idx, true); }
-      });
-    });
-  }
-
   /* --- Split text (chars / words), preserves <br> and child classes --- */
   function escHTML(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
     return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
@@ -351,13 +236,11 @@
     safe(initSplash, "initSplash");
     safe(initNav, "initNav");
     safe(initBurger, "initBurger");
-    safe(initCursor, "initCursor");
     safe(initScrollProgress, "initScrollProgress");
     safe(initReveals, "initReveals");
     safe(initAnchors, "initAnchors");
     safe(initCountUp, "initCountUp");
     safe(initRpm, "initRpm");
-    safe(initMenu, "initMenu");
 
     // 3D scene (independent of GSAP)
     if (window.__PG_SCENE__) safe(window.__PG_SCENE__.init, "scene");

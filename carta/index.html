@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tema + idioma antes de pintar (evita el flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("pg_theme");
+        document.documentElement.dataset.theme = (t === "light" || t === "dark") ? t : "dark";
+        var l = localStorage.getItem("pg_lang");
+        document.documentElement.lang = (l === "en" || l === "es") ? l : "es";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+        document.documentElement.lang = "es";
+      }
+    })();
+  </script>
+
+  <title>Carta &amp; Menú — Patagonia Garage · Neuquén</title>
+  <meta name="description" content="Mirá la carta completa de Patagonia Garage. Ahumados, parrilla, tragos y más. Antártida Argentina 540, Neuquén." />
+  <meta name="theme-color" content="#0a0604" />
+  <link rel="canonical" href="https://patagonia-garage.netlify.app/carta" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant.menu" />
+  <meta property="og:title" content="Carta & Menú — Patagonia Garage · Neuquén" />
+  <meta property="og:description" content="Ahumados de fuego lento, parrilla, tragos con nombre de leyenda y más. La carta completa de Patagonia Garage." />
+  <meta property="og:image" content="https://patagonia-garage.netlify.app/assets/img/garage.jpg" />
+  <meta property="og:url" content="https://patagonia-garage.netlify.app/carta" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <style>
+    :root {
+      --bg:       #0a0604;
+      --bg-soft:  #140c07;
+      --copper:   #b87333;
+      --copper-2: #d8995a;
+      --copper-3: #e7b885;   /* color de los precios */
+      --text:     #f4ead5;
+      --muted:    rgba(244, 234, 213, 0.60);
+      --dim:      rgba(244, 234, 213, 0.34);
+      --line:     rgba(184, 115, 51, 0.22);
+      --hair:     rgba(244, 234, 213, 0.07);  /* separador entre ítems */
+      --chip:     rgba(255, 255, 255, 0.025);
+      --nav-1:    rgba(10, 6, 4, 0.96);
+      --nav-2:    rgba(10, 6, 4, 0.82);
+      --body-1:   #0c0705;
+      --body-2:   #0a0604;
+      --glow:     rgba(184, 115, 51, 0.10);
+      --shadow:   rgba(0, 0, 0, 0.8);
+
+      --display:  "Anton", "Arial Narrow", sans-serif;
+      --sans:     "Inter", system-ui, -apple-system, sans-serif;
+      --mono:     "JetBrains Mono", ui-monospace, monospace;
+      --wa:       #1fae4d;
+      --maxw:     760px;
+    }
+    /* ---- Tema claro: legible con luz del día en la mesa ---- */
+    html[data-theme="light"] {
+      --bg:       #faf7f2;
+      --bg-soft:  #f1e7d9;
+      --copper:   #a25f24;
+      --copper-2: #8a4f1d;
+      --copper-3: #8a4f1d;
+      --text:     #241710;
+      --muted:    rgba(36, 23, 16, 0.66);
+      --dim:      rgba(36, 23, 16, 0.45);
+      --line:     rgba(162, 95, 36, 0.30);
+      --hair:     rgba(36, 23, 16, 0.10);
+      --chip:     rgba(162, 95, 36, 0.07);
+      --nav-1:    rgba(250, 247, 242, 0.94);
+      --nav-2:    rgba(250, 247, 242, 0.78);
+      --body-1:   #fbf8f3;
+      --body-2:   #faf7f2;
+      --glow:     rgba(184, 115, 51, 0.14);
+      --shadow:   rgba(120, 80, 40, 0.18);
+    }
+
+    * , *::before, *::after { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--sans); background: var(--bg); color: var(--text);
+      line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      padding-bottom: 6rem;
+      background-image:
+        radial-gradient(120% 60% at 50% -10%, var(--glow), transparent 60%),
+        linear-gradient(180deg, var(--body-1) 0%, var(--body-2) 40%);
+      background-attachment: fixed;
+      transition: background-color .35s ease, color .35s ease;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; padding: 0; }
+    ::selection { background: var(--copper); color: #1a0d05; }
+    :focus-visible { outline: 2px solid var(--copper-2); outline-offset: 3px; border-radius: 6px; }
+
+    /* ---- Controles (idioma + tema), arriba a la derecha ---- */
+    .controls {
+      position: absolute; top: .9rem; right: clamp(.8rem, 4vw, 1.4rem); z-index: 30;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .ctl-theme {
+      width: 40px; height: 34px; display: grid; place-items: center;
+      border-radius: 999px; border: 1px solid var(--line); background: var(--chip);
+      color: var(--text); font-size: 1rem; line-height: 1;
+      transition: border-color .25s, background .25s, transform .2s;
+    }
+    .ctl-theme:hover { border-color: var(--copper); transform: translateY(-1px); }
+    .ctl-lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--chip); }
+    .ctl-lang button {
+      padding: .42rem .7rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .06em;
+      color: var(--muted); transition: color .25s, background .25s;
+    }
+    .ctl-lang button.active {
+      color: #1a0d05; font-weight: 700;
+      background: linear-gradient(135deg, var(--copper-2), var(--copper));
+    }
+    button { font: inherit; border: 0; background: none; cursor: pointer; color: inherit; }
+
+    /* ---- Header / logo ---- */
+    .top { position: relative; text-align: center; padding: clamp(3rem, 8vw, 3.8rem) 1.2rem 1.4rem; }
+    .logo {
+      display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 14px;
+      font-family: var(--display); font-size: 1.9rem; color: #1a0d05; letter-spacing: .02em;
+      background: linear-gradient(135deg, var(--copper-3, #e7b885), var(--copper));
+      box-shadow: 0 10px 30px -10px rgba(184,115,51,.7), inset 0 1px 0 rgba(255,255,255,.35);
+      margin-bottom: 1rem;
+    }
+    html[data-theme="light"] .logo { color: #fff; }
+    .top-name { font-family: var(--display); font-size: clamp(2rem, 8vw, 3.1rem); letter-spacing: .03em; line-height: 1; }
+    .top-tag { font-family: var(--mono); font-size: .72rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--copper-2); margin-top: .8rem; }
+    .top-meta { font-size: .9rem; color: var(--muted); margin-top: .9rem; }
+    .top-meta a { color: var(--copper-2); border-bottom: 1px solid var(--line); }
+
+    /* ---- Sticky category nav ---- */
+    .catnav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; gap: .5rem; overflow-x: auto; overflow-y: hidden;
+      padding: .8rem clamp(1rem, 5vw, 2rem); scrollbar-width: none;
+      background: linear-gradient(180deg, var(--nav-1), var(--nav-2));
+      backdrop-filter: blur(12px) saturate(1.15);
+      border-bottom: 1px solid var(--line);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    }
+    .catnav::-webkit-scrollbar { display: none; }
+    .catnav a {
+      flex: 0 0 auto; padding: .55rem 1rem; border-radius: 999px;
+      font-family: var(--mono); font-size: .74rem; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap; border: 1px solid var(--line);
+      background: var(--chip); transition: color .25s, background .25s, border-color .25s;
+    }
+    .catnav a:hover { color: var(--text); border-color: var(--copper); }
+    .catnav a.active {
+      color: #1a0d05; font-weight: 700; border-color: transparent;
+      background: linear-gradient(135deg, var(--copper-2), var(--copper));
+    }
+
+    /* ---- Menu body ---- */
+    main { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.2rem, 5vw, 2rem); }
+    .intro { color: var(--muted); font-size: .92rem; text-align: center; margin: 1.8rem 0 .6rem; }
+
+    .cat { padding-top: clamp(2.6rem, 7vw, 3.8rem); scroll-margin-top: 72px; }
+    .cat-title {
+      font-family: var(--display); font-size: clamp(1.7rem, 6.5vw, 2.5rem); letter-spacing: .02em;
+      line-height: 1; color: var(--text);
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .cat-title::after { content: ""; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--copper), transparent); }
+    .cat-note { font-family: var(--mono); font-size: .74rem; letter-spacing: .04em;
+      color: var(--copper-2); margin-top: .9rem; }
+
+    .items { margin-top: 1.4rem; }
+    .item { padding: 1.25rem 0; border-bottom: 1px solid var(--hair); }
+    .item:last-child { border-bottom: 0; }
+    .item-head { display: flex; align-items: baseline; gap: 1rem; }
+    .item-name { font-size: clamp(1.08rem, 4vw, 1.3rem); font-weight: 600; letter-spacing: .005em; line-height: 1.3; }
+    .item-dots { flex: 1; align-self: center; border-bottom: 1px dotted var(--line); min-width: 1.2rem; height: .55em; }
+    .item-price {
+      flex: 0 0 auto; font-family: var(--display); font-size: clamp(1.2rem, 4.6vw, 1.5rem);
+      letter-spacing: .01em; color: var(--copper-3); white-space: nowrap;
+    }
+    .item-desc { margin-top: .45rem; color: var(--muted); font-size: clamp(.92rem, 3.4vw, 1.02rem); max-width: 52ch; }
+
+    .menu-note { text-align: center; color: var(--dim); font-family: var(--mono); font-size: .72rem;
+      letter-spacing: .04em; margin: 3rem 0 1rem; }
+
+    /* ---- Footer ---- */
+    footer { max-width: var(--maxw); margin: 2.5rem auto 0; padding: 2.2rem clamp(1.2rem,5vw,2rem) 1rem;
+      border-top: 1px solid var(--line); text-align: center; }
+    .foot-block { margin-bottom: 1.4rem; }
+    .foot-label { font-family: var(--mono); font-size: .64rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--copper); display: block; margin-bottom: .5rem; }
+    .foot-big { font-family: var(--display); font-size: 1.3rem; letter-spacing: .02em; }
+    .foot-sub { color: var(--muted); font-size: .92rem; margin-top: .2rem; }
+    .foot-link { color: var(--copper-2); font-size: .92rem; border-bottom: 1px solid var(--line); }
+    .back { display: inline-block; margin-top: 1.6rem; font-family: var(--mono); font-size: .74rem;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .back:hover { color: var(--copper-2); }
+
+    /* ---- Floating WhatsApp ---- */
+    .wa-float {
+      position: fixed; right: clamp(1rem, 4vw, 1.6rem); bottom: clamp(1rem, 4vw, 1.6rem); z-index: 50;
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .95rem 1.35rem; border-radius: 999px; font-weight: 700; font-size: .95rem; color: #04210f;
+      background: linear-gradient(135deg, #28c95a, var(--wa));
+      box-shadow: 0 14px 34px -10px rgba(31,174,77,.7), inset 0 1px 0 rgba(255,255,255,.3);
+      transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s;
+    }
+    .wa-float:hover { transform: translateY(-3px); box-shadow: 0 22px 48px -12px rgba(31,174,77,.85); }
+    .wa-float svg { flex: 0 0 auto; }
+    .wa-float .wa-txt-long { display: none; }
+    @media (min-width: 480px) { .wa-float .wa-txt-long { display: inline; } .wa-float .wa-txt-short { display: none; } }
+
+    .loading, .error { text-align: center; color: var(--muted); font-family: var(--mono);
+      font-size: .9rem; padding: 4rem 1rem; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .wa-float, body, .ctl-theme { transition: none; } }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="controls">
+      <button class="ctl-theme" id="themeBtn" type="button" aria-label="Cambiar tema">☀</button>
+      <div class="ctl-lang" role="group" id="langGroup" aria-label="Idioma">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <a class="logo" href="/" aria-label="Patagonia Garage — inicio">PG</a>
+    <h1 class="top-name">Patagonia Garage</h1>
+    <p class="top-tag" id="tag">Parrilla · Ahumados · Resto Bar</p>
+    <p class="top-meta">
+      <a href="https://www.google.com/maps/search/?api=1&query=Ant%C3%A1rtida%20Argentina%20540%2C%20Neuqu%C3%A9n%2C%20Argentina" target="_blank" rel="noopener">Antártida Argentina 540, Neuquén</a>
+      · <span id="schedule">Todos los días 12:00 – 01:00</span>
+    </p>
+  </header>
+
+  <nav class="catnav" id="catnav" aria-label="Categorías de la carta"></nav>
+
+  <main id="menu">
+    <p class="loading" id="loading">Cargando la carta…</p>
+  </main>
+
+  <footer>
+    <div class="foot-block">
+      <span class="foot-label" id="lblAddr">Dirección</span>
+      <p class="foot-big">Antártida Argentina 540</p>
+      <p class="foot-sub" id="addrSub">Neuquén Capital · Patagonia, Argentina</p>
+    </div>
+    <div class="foot-block">
+      <span class="foot-label" id="lblHours">Horario</span>
+      <p class="foot-big" id="hoursBig">Todos los días</p>
+      <p class="foot-sub" id="hoursSub">12:00 – 01:00</p>
+    </div>
+    <div class="foot-block">
+      <span class="foot-label" id="lblFollow">Seguinos</span>
+      <a class="foot-link" href="https://www.instagram.com/patagoniagarage/" target="_blank" rel="noopener">Instagram @patagoniagarage ↗</a>
+    </div>
+    <a class="back" id="backLink" href="/">← Volver al sitio</a>
+  </footer>
+
+  <a class="wa-float" id="waFloat"
+     href="https://wa.me/5492995725204?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20Patagonia%20Garage"
+     target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.3.5c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.3.4-.2.6-.1l1.8.9c.3.1.5.2.5.3.1.2.1.9-.1 1.5Z"/></svg>
+    <span class="wa-txt-long">Reservar por WhatsApp</span>
+    <span class="wa-txt-short">Reservar</span>
+  </a>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var LS_THEME = "pg_theme", LS_LANG = "pg_lang";
+
+    /* --- Analytics (sin librerías externas: dataLayer + console) --- */
+    window.dataLayer = window.dataLayer || [];
+    function track(event, data) {
+      var payload = Object.assign({ event: event, ts: Date.now() }, data || {});
+      window.dataLayer.push(payload);
+      try { console.log("[analytics]", event, payload); } catch (e) {}
+    }
+    function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
+
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+      });
+    }
+
+    /* --- Traducciones de la interfaz (las etiquetas, no los platos) --- */
+    var UI = {
+      es: {
+        tag: "Parrilla · Ahumados · Resto Bar",
+        schedule: "Todos los días 12:00 – 01:00",
+        lblAddr: "Dirección", addrSub: "Neuquén Capital · Patagonia, Argentina",
+        lblHours: "Horario", hoursBig: "Todos los días", hoursSub: "12:00 – 01:00",
+        lblFollow: "Seguinos", back: "← Volver al sitio",
+        waLong: "Reservar por WhatsApp", waShort: "Reservar",
+        loading: "Cargando la carta…", error: "No pudimos cargar la carta. Probá recargar la página.",
+        menuNote: "Patagonia Garage · Neuquén",
+        rootNote: "Los precios pueden variar. Consultá disponibilidad y opciones del día con tu mozo.",
+        theme: "Cambiar tema"
+      },
+      en: {
+        tag: "Grill · Smokehouse · Resto Bar",
+        schedule: "Every day 12:00 PM – 01:00 AM",
+        lblAddr: "Address", addrSub: "Neuquén City · Patagonia, Argentina",
+        lblHours: "Hours", hoursBig: "Every day", hoursSub: "12:00 PM – 01:00 AM",
+        lblFollow: "Follow us", back: "← Back to site",
+        waLong: "Book on WhatsApp", waShort: "Book",
+        loading: "Loading the menu…", error: "We couldn't load the menu. Please reload the page.",
+        menuNote: "Patagonia Garage · Neuquén",
+        rootNote: "Prices may vary. Ask your server about availability and daily options.",
+        theme: "Toggle theme"
+      }
+    };
+    /* Etiquetas de categoría en inglés (por id). El español sale de menu.json. */
+    var CAT_EN = {
+      entradas: "Starters", ahumador: "From the Smoker", brasas: "From the Grill",
+      sandwiches: "Sandwiches", especiales: "Specials", ensaladas: "Salads & Sides",
+      pastas: "Pasta & Rice", infantil: "Kids' Menu", postres: "Desserts",
+      cervezas: "Beers", aguas: "Water & Soft Drinks", tragos: "Signature Cocktails",
+      vinos: "Wines", espumantes: "Sparkling Wines", cafeteria: "Coffee & Tea"
+    };
+    var NOTE_EN = { sandwiches: "All include french fries." };
+
+    var html = document.documentElement;
+    var lang = html.lang === "en" ? "en" : "es";
+    var theme = html.dataset.theme === "light" ? "light" : "dark";
+
+    var menuData = null, catById = {};
+    var navEl = document.getElementById("catnav");
+    var menuEl = document.getElementById("menu");
+
+    function catLabel(cat) { return lang === "en" ? (CAT_EN[cat.id] || cat.name) : cat.name; }
+    function catNote(cat) {
+      if (!cat.note) return "";
+      return lang === "en" ? (NOTE_EN[cat.id] || cat.note) : cat.note;
+    }
+
+    /* --- Render del menú (una sola vez; el idioma se repinta aparte) --- */
+    fetch("/assets/data/menu.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(render)
+      .catch(function (err) {
+        console.warn("[carta]", err);
+        menuEl.innerHTML = '<p class="error">' + esc(UI[lang].error) + "</p>";
+      });
+
+    function render(menu) {
+      menuData = menu;
+      var cats = (menu && menu.categories) || [];
+      if (!cats.length) { menuEl.innerHTML = '<p class="error">' + esc(UI[lang].error) + "</p>"; return; }
+
+      var navHTML = "", bodyHTML = "";
+      cats.forEach(function (cat) {
+        catById[cat.id] = cat;
+        var cid = "cat-" + cat.id;
+        navHTML += '<a href="#' + cid + '" data-id="' + esc(cat.id) + '" data-cat="' + cid + '">' + esc(catLabel(cat)) + "</a>";
+
+        var rows = (cat.items || []).map(function (it) {
+          var desc = it.desc ? '<p class="item-desc">' + esc(it.desc) + "</p>" : "";
+          return (
+            '<li class="item">' +
+              '<div class="item-head">' +
+                '<span class="item-name">' + esc(it.name) + "</span>" +
+                '<span class="item-dots" aria-hidden="true"></span>' +
+                '<span class="item-price">' + esc(it.price) + "</span>" +
+              "</div>" + desc +
+            "</li>"
+          );
+        }).join("");
+
+        var note = cat.note ? '<p class="cat-note" data-id="' + esc(cat.id) + '">' + esc(catNote(cat)) + "</p>" : "";
+        bodyHTML +=
+          '<section class="cat" id="' + cid + '">' +
+            '<h2 class="cat-title" data-id="' + esc(cat.id) + '">' + esc(catLabel(cat)) + "</h2>" + note +
+            '<ul class="items">' + rows + "</ul>" +
+          "</section>";
+      });
+
+      navEl.innerHTML = navHTML;
+      menuEl.innerHTML =
+        '<p class="intro" id="intro"></p>' + bodyHTML +
+        '<p class="menu-note" id="menuFoot"></p>';
+
+      paintLang();
+      wireNav();
+      track("view_menu", { categories: cats.length, lang: lang });
+    }
+
+    /* --- Aplica el idioma a TODA la interfaz (estático + dinámico) --- */
+    function paintLang() {
+      var t = UI[lang];
+      function set(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; }
+      set("tag", t.tag); set("schedule", t.schedule);
+      set("lblAddr", t.lblAddr); set("addrSub", t.addrSub);
+      set("lblHours", t.lblHours); set("hoursBig", t.hoursBig); set("hoursSub", t.hoursSub);
+      set("lblFollow", t.lblFollow); set("backLink", t.back);
+      set("loading", t.loading); set("intro", t.rootNote); set("menuFoot", t.menuNote);
+
+      var waL = document.querySelector("#waFloat .wa-txt-long");
+      var waS = document.querySelector("#waFloat .wa-txt-short");
+      if (waL) waL.textContent = t.waLong;
+      if (waS) waS.textContent = t.waShort;
+      document.getElementById("themeBtn").setAttribute("aria-label", t.theme);
+
+      // Dinámico: nombres de categoría en nav y títulos + notas
+      Array.prototype.forEach.call(document.querySelectorAll("[data-id]"), function (el) {
+        var cat = catById[el.getAttribute("data-id")];
+        if (!cat) return;
+        if (el.classList.contains("cat-note")) el.textContent = catNote(cat);
+        else el.textContent = catLabel(cat);
+      });
+
+      // Estado activo de los botones de idioma
+      Array.prototype.forEach.call(document.querySelectorAll("#langGroup button"), function (b) {
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === lang));
+      });
+    }
+
+    /* --- Tema claro/oscuro --- */
+    function paintTheme() {
+      html.dataset.theme = theme;
+      var btn = document.getElementById("themeBtn");
+      btn.textContent = theme === "dark" ? "☀" : "🌙"; // muestra a qué tema cambia
+    }
+    function setTheme(next) {
+      theme = next; paintTheme(); store(LS_THEME, theme); track("toggle_theme", { theme: theme });
+    }
+    function setLang(next) {
+      if (next !== "es" && next !== "en") return;
+      lang = next; html.lang = lang; paintLang(); store(LS_LANG, lang); track("toggle_language", { lang: lang });
+    }
+
+    /* --- Scrollspy: resalta la categoría visible --- */
+    function wireNav() {
+      var links = Array.prototype.slice.call(navEl.querySelectorAll("a"));
+      var byCat = {};
+      links.forEach(function (a) { byCat[a.getAttribute("data-cat")] = a; });
+      var sections = Array.prototype.slice.call(document.querySelectorAll(".cat"));
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (!en.isIntersecting) return;
+            var a = byCat[en.target.id]; if (!a) return;
+            links.forEach(function (l) { l.classList.remove("active"); });
+            a.classList.add("active");
+            a.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+          });
+        }, { rootMargin: "-20% 0px -72% 0px", threshold: 0 });
+        sections.forEach(function (s) { io.observe(s); });
+      }
+      if (links[0]) links[0].classList.add("active");
+    }
+
+    /* --- Wiring de controles + analytics --- */
+    paintTheme(); paintLang();
+    document.getElementById("themeBtn").addEventListener("click", function () {
+      setTheme(theme === "dark" ? "light" : "dark");
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("#langGroup button"), function (b) {
+      b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+    });
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (a) track("click_whatsapp", { from: a.id || "link", lang: lang });
+    });
+  })();
+  </script>
+</body>
+</html>
